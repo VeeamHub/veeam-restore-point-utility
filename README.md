@@ -1,22 +1,14 @@
-# File-level Comparison for Veeam Restore Points
+# Veeam Restore Points File-level Comparison Utility
 
-Here are instructions on how to use this template:
+* This repository contains the .MSI installer and source code for this utility.
 
-* Navigate to the [main page of this repository](https://github.com/VeeamHub/veeamhub-template)
-* Follow instructions for [creating a repository from a template](https://help.github.com/en/articles/creating-a-repository-from-a-template)
-  * _Repository names **must** have the prefix:_ **veeam-**
-  * Example: _veeam-repo-name_
-* Replace **all** repository-specific links
-  * `issues` link in _README.md_
-  * `create an issue` link in _README.md_
-  * `opening a new issue` link in _CONTRIBUTING.md_
-* Remove the instructions from this section and replace it with information describing this repository.
+This Windows-based utility leverages the Powershell-based Veeam Data Integration API to mount backup points for purpose of performing file-level comparison between two backup increments useful for helping determine the filesystem changes that have caused some sort of restore point size anomoly e.g. daily increment size 200% larger than normal or the like.  The utility also provides for comparing a restore point to a running workload (VM or other). This scenario is outlined in the usage section below and can help identify files added or deleted since a prior backup run for instance.
 
 ## 📗 Documentation
 
 **Author:** Ronn Martin (ronn.martin@veeam.com)
 
-**Function:** This Windows-based utility leverages the Veeam Data Integration API to mount backup points for file-level comparison useful for helping determine the filesystem changes that have caused some sort of restore point size anomoly e.g. daily increment size 200% larger than normal or the like.  The utility also provides for comparing a restore point to a running workload (VM or other). This scenario is outlined in the usage section below and can help identify files added or deleted since a prior backup run for instance.
+**Function:** 
 
 **Requires:** Veeam Powershell module (v11+), .NET Framework 4.6.2
 
@@ -34,7 +26,7 @@ The most likely cause of failure during the process is the selection of invalid 
 
 ## ✍ Contributions
 
-We welcome contributions from the community! We encourage you to create [issues](https://github.com/VeeamHub/{repo-name}/issues/new/choose) for Bugs & Feature Requests and submit Pull Requests. For more detailed information, refer to our [Contributing Guide](CONTRIBUTING.md).
+We welcome contributions from the community! We encourage you to create [issues](https://github.com/VeeamHub/veeam-restore-point-utility/issues/new/choose) for Bugs & Feature Requests and submit Pull Requests. For more detailed information, refer to our [Contributing Guide](CONTRIBUTING.md).
 
 ## 🤝🏾 License
 
@@ -42,4 +34,4 @@ We welcome contributions from the community! We encourage you to create [issues]
 
 ## 🤔 Questions
 
-If you have any questions or something is unclear, please don't hesitate to [create an issue](https://github.com/VeeamHub/{repo-name}/issues/new/choose) and let us know!
+If you have any questions or something is unclear, please don't hesitate to [create an issue](https://github.com/VeeamHub/veeam-restore-point-utility/issues/new/choose) and let us know!
