@@ -1,4 +1,4 @@
-# Veeam Restore Points File-level Comparison Utility
+# Veeam Restore Point File-level Comparison Utility
 
 **This repository contains the .MSI installer and source code for this utility.**
 
