@@ -34,7 +34,19 @@ Once comparisons have completed, any files unique to point "A" or point "B" will
 
 ![Differences Dialog](images/RestorePointDiff.png)
 
-*Compare to live* - If the static **"<< workload name >> Live VM/workload"** option is chosen from the point selection dialog the backup restore point selected will be mounted as noted above. It will then be incumbent on the user to map a drive/folder from the live VM/workload with the file browse dialog to compare with the corresponding mounted backup filesystem. Otherwise operation proceeds as normal. This capability may be helpful for identifying files added, deleted or changed on the live server instance since a prior backup run for example.
+*Compare to live* - If the static **"<< workload name >> Live VM/workload"** option is chosen from the point selection dialog the backup restore point selected will be mounted as noted above. It will then be incumbent on the user to map a drive/folder from the live VM/workload with the file browse dialog to compare with the corresponding mounted backup filesystem. 
+
+![Compare Live VM to Restore Point](images/CompareLive.png)
+
+Otherwise operation proceeds as normal (example below). This capability may be helpful for identifying files added, deleted or changed on the live server instance since a prior backup run for example.
+
+![Map Live Workload Volume/Folder](images/MapLiveVolume0.png)
+
+![Map Live Workload Volume/Folder](images/MapLiveVolume1.png)
+
+![Select Live Workload Volume/Folder](images/MapLiveVolume2.png)
+
+![Compare Live with Mounted Backup](images/MapLiveVolume3.png)
 
 *Remote mount servers* - If the application cannot be installed on the mount server it will still function however with additional manual steps. The remote server volume that mounts the backups will need to be manually mapped within the file browse dialog exposed in the comparison dialog. Once the remote drive is mounted the \VeeamFLR folder can be navigated to select the mounted volumes or folders for comparison.
 
