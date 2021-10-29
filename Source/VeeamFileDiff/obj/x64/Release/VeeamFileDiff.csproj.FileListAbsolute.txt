@@ -1,0 +1,23 @@
+C:\Users\ronn\Documents\Visual Studio 2015\Projects\VeeamFileDiff\VeeamMissingFiles\bin\x64\Release\VeeamFileDiff.exe.config
+C:\Users\ronn\Documents\Visual Studio 2015\Projects\VeeamFileDiff\VeeamMissingFiles\bin\x64\Release\VeeamFileDiff.exe
+C:\Users\ronn\Documents\Visual Studio 2015\Projects\VeeamFileDiff\VeeamMissingFiles\bin\x64\Release\VeeamFileDiff.pdb
+C:\Users\ronn\Documents\Visual Studio 2015\Projects\VeeamFileDiff\VeeamMissingFiles\bin\x64\Release\ProcessPrivileges.dll
+C:\Users\ronn\Documents\Visual Studio 2015\Projects\VeeamFileDiff\VeeamMissingFiles\bin\x64\Release\System.Management.Automation.dll
+C:\Users\ronn\Documents\Visual Studio 2015\Projects\VeeamFileDiff\VeeamMissingFiles\obj\x64\Release\VeeamFileDiff.Properties.Resources.resources
+C:\Users\ronn\Documents\Visual Studio 2015\Projects\VeeamFileDiff\VeeamMissingFiles\obj\x64\Release\VeeamFileDiff.frmVeeamMain.resources
+C:\Users\ronn\Documents\Visual Studio 2015\Projects\VeeamFileDiff\VeeamMissingFiles\obj\x64\Release\VeeamFileDiff.VeeamPreview.resources
+C:\Users\ronn\Documents\Visual Studio 2015\Projects\VeeamFileDiff\VeeamMissingFiles\obj\x64\Release\VeeamFileDiff.csproj.GenerateResource.Cache
+C:\Users\ronn\Documents\Visual Studio 2015\Projects\VeeamFileDiff\VeeamMissingFiles\obj\x64\Release\VeeamFileDiff.exe
+C:\Users\ronn\Documents\Visual Studio 2015\Projects\VeeamFileDiff\VeeamMissingFiles\obj\x64\Release\VeeamFileDiff.pdb
+C:\Users\ronn\Documents\Visual Studio 2015\Projects\VeeamFileDiff 2.0\VeeamFileDiff\obj\x64\Release\VeeamFileDiff.Properties.Resources.resources
+C:\Users\ronn\Documents\Visual Studio 2015\Projects\VeeamFileDiff 2.0\VeeamFileDiff\obj\x64\Release\VeeamFileDiff.frmChoosePoints.resources
+C:\Users\ronn\Documents\Visual Studio 2015\Projects\VeeamFileDiff 2.0\VeeamFileDiff\obj\x64\Release\VeeamFileDiff.frmVeeamMain.resources
+C:\Users\ronn\Documents\Visual Studio 2015\Projects\VeeamFileDiff 2.0\VeeamFileDiff\obj\x64\Release\VeeamFileDiff.frmViewDiff.resources
+C:\Users\ronn\Documents\Visual Studio 2015\Projects\VeeamFileDiff 2.0\VeeamFileDiff\obj\x64\Release\VeeamFileDiff.csproj.GenerateResource.Cache
+C:\Users\ronn\Documents\Visual Studio 2015\Projects\VeeamFileDiff 2.0\VeeamFileDiff\bin\x64\Release\ProcessPrivileges.dll
+C:\Users\ronn\Documents\Visual Studio 2015\Projects\VeeamFileDiff 2.0\VeeamFileDiff\bin\x64\Release\System.Management.Automation.dll
+C:\Users\ronn\Documents\Visual Studio 2015\Projects\VeeamFileDiff 2.0\VeeamFileDiff\bin\x64\Release\VeeamRestorePointDiff.exe.config
+C:\Users\ronn\Documents\Visual Studio 2015\Projects\VeeamFileDiff 2.0\VeeamFileDiff\bin\x64\Release\VeeamRestorePointDiff.exe
+C:\Users\ronn\Documents\Visual Studio 2015\Projects\VeeamFileDiff 2.0\VeeamFileDiff\bin\x64\Release\VeeamRestorePointDiff.pdb
+C:\Users\ronn\Documents\Visual Studio 2015\Projects\VeeamFileDiff 2.0\VeeamFileDiff\obj\x64\Release\VeeamRestorePointDiff.exe
+C:\Users\ronn\Documents\Visual Studio 2015\Projects\VeeamFileDiff 2.0\VeeamFileDiff\obj\x64\Release\VeeamRestorePointDiff.pdb
