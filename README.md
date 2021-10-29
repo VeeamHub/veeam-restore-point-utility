@@ -20,7 +20,7 @@ This Windows utility leverages the Powershell-based Veeam Data Integration API t
 **Usage:** After installing to a Windows instance that meets the requirements above, the application will reside in "\Program Files\Veeam Skunkworks\Veeam Restore Point File Diff\VeeamRestorePointDiff.exe". A start menu shortcut is also added for convenience.
 For normal operation, launch the application as administrator and select the Windows workload for comparison from the list of backups and affiliated workloads.
 
-![image1](UI Images/Workload Selection.png)
+![image1](images/WorkloadSelection.png)
 ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
 
 Next choose two restore points to compare from the list of available restore points as well as mount server credentials.  Selecting "Next" mounts the backup points (\VeeamFLR\...) and presents the dialog for running comparisons. As noted above if all disks should be compared simply select "Compare" otherwise select the file browse dialog "..." buttons to choose the appropriate sub-folders of the mounted backups for comparison. Once comparisons have completed, any files unique to point "A" or point "B" will be displayed in the left and right columns respectively.  Any files that have changed will show in the center column. Note that the sizes displayed for the changed files will be file "A" size - file "B" size. There may also be a number of files/folders which show size 0. These may be accounted for if only the encryption status has changed or if the files are symbolically linked and the "real" file changed. Otherwise the respective file sizes are rolled up to the parent folder levels to expedite identification of primary filesystem change source(s).
