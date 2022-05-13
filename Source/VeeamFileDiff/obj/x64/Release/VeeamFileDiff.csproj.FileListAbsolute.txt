@@ -21,3 +21,17 @@ C:\Users\ronn\Documents\Visual Studio 2015\Projects\VeeamFileDiff 2.0\VeeamFileD
 C:\Users\ronn\Documents\Visual Studio 2015\Projects\VeeamFileDiff 2.0\VeeamFileDiff\bin\x64\Release\VeeamRestorePointDiff.pdb
 C:\Users\ronn\Documents\Visual Studio 2015\Projects\VeeamFileDiff 2.0\VeeamFileDiff\obj\x64\Release\VeeamRestorePointDiff.exe
 C:\Users\ronn\Documents\Visual Studio 2015\Projects\VeeamFileDiff 2.0\VeeamFileDiff\obj\x64\Release\VeeamRestorePointDiff.pdb
+C:\Users\ronn.martin\GIT\veeam-restore-point-utility\Source\VeeamFileDiff\bin\x64\Release\VeeamRestorePointDiff.exe.config
+C:\Users\ronn.martin\GIT\veeam-restore-point-utility\Source\VeeamFileDiff\bin\x64\Release\VeeamRestorePointDiff.exe
+C:\Users\ronn.martin\GIT\veeam-restore-point-utility\Source\VeeamFileDiff\bin\x64\Release\VeeamRestorePointDiff.pdb
+C:\Users\ronn.martin\GIT\veeam-restore-point-utility\Source\VeeamFileDiff\bin\x64\Release\ProcessPrivileges.dll
+C:\Users\ronn.martin\GIT\veeam-restore-point-utility\Source\VeeamFileDiff\bin\x64\Release\System.Management.Automation.dll
+C:\Users\ronn.martin\GIT\veeam-restore-point-utility\Source\VeeamFileDiff\obj\x64\Release\VeeamFileDiff.Properties.Resources.resources
+C:\Users\ronn.martin\GIT\veeam-restore-point-utility\Source\VeeamFileDiff\obj\x64\Release\VeeamFileDiff.frmChoosePoints.resources
+C:\Users\ronn.martin\GIT\veeam-restore-point-utility\Source\VeeamFileDiff\obj\x64\Release\VeeamFileDiff.frmVeeamMain.resources
+C:\Users\ronn.martin\GIT\veeam-restore-point-utility\Source\VeeamFileDiff\obj\x64\Release\VeeamFileDiff.frmViewDiff.resources
+C:\Users\ronn.martin\GIT\veeam-restore-point-utility\Source\VeeamFileDiff\obj\x64\Release\VeeamFileDiff.csproj.GenerateResource.cache
+C:\Users\ronn.martin\GIT\veeam-restore-point-utility\Source\VeeamFileDiff\obj\x64\Release\VeeamFileDiff.csproj.CoreCompileInputs.cache
+C:\Users\ronn.martin\GIT\veeam-restore-point-utility\Source\VeeamFileDiff\obj\x64\Release\VeeamFileDiff.csproj.CopyComplete
+C:\Users\ronn.martin\GIT\veeam-restore-point-utility\Source\VeeamFileDiff\obj\x64\Release\VeeamRestorePointDiff.exe
+C:\Users\ronn.martin\GIT\veeam-restore-point-utility\Source\VeeamFileDiff\obj\x64\Release\VeeamRestorePointDiff.pdb

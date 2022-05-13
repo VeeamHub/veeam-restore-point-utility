@@ -122,19 +122,52 @@ namespace VeeamFileDiff
             }
         }
 
+        private int detectVBRPlatform()
+        {
+            Pipeline vPipe;
+            String verString;
+
+            slVeeam.Text = "Detecting VBR platform version";
+            Application.DoEvents();
+            vPipe = appData.VBRRunSpace.CreatePipeline();
+            vPipe.Commands.AddScript("Get-WmiObject -Class Win32_Product | Where-Object {$_.Name -eq 'Veeam Backup & Replication Server'} | Select-Object Version");
+            ICollection<PSObject> results = vPipe.Invoke();
+
+            if (vPipe.Error.Count == 0)
+            {
+                foreach (PSObject pso in results) //should only be one...
+                {
+                    //extract VBR major version
+                    verString = pso.Properties["Version"].Value.ToString().Split('.')[0];
+                    vPipe.Dispose();
+                    return int.Parse(verString);
+                }
+            }
+            vPipe.Dispose();
+            return 0;
+        }
+
         private Boolean initBackupList()
         {
             Pipeline vPipe;
             Boolean rval = false;
+            String psScriptStr;
 
             try {
                 trvBackups.Nodes.Add("Backups"); //"seed" the treeview
 
+                switch (detectVBRPlatform()) {
+                    case 12:
+                        psScriptStr = "Get-VBRBackup | ? {$_.TypeToString -eq 'VMWare Backup' -or $_.JobType -eq 'EndpointBackup' -or $_.JobType -eq 'EpAgentManagement'} | Select-Object JobName, JobType, Id";
+                        break;
+                    default: //v11
+                        psScriptStr = "Get-VBRBackup | ? {$_.JobType -eq 'Backup' -or $_.JobType -eq 'EndpointBackup' -or $_.JobType -eq 'EpAgentManagement'} | Select-Object JobName, JobType, Id";
+                        break; 
+                }
                 slVeeam.Text = "Retrieving available backups";
 
                 vPipe = appData.VBRRunSpace.CreatePipeline();
-                //vPipe.Commands.AddScript("Get-VBRBackup | ? {$_.JobType -eq 'Backup'} | select jobname, jobtype, Id");
-                vPipe.Commands.AddScript("Get-VBRBackup | ? {$_.JobType -eq 'Backup' -or $_.JobType -eq 'EndpointBackup' -or $_.JobType -eq 'EpAgentManagement'} | Select-Object JobName, JobType, Id");
+                vPipe.Commands.AddScript(psScriptStr);
                 ICollection<PSObject> results = vPipe.Invoke();
 
                 if (vPipe.Error.Count == 0)
