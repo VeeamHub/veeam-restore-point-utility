@@ -4,11 +4,13 @@
 
 This Windows utility leverages the Powershell-based Veeam Data Integration API to mount backup points for the purpose of performing file-level comparison between two backup increments useful for helping determine the source filesystem changes that have caused some sort of restore point size anomoly for instance a daily increment point size substantially larger or smaller than normal.  The utility also accomodates comparing a restore point to a running workload (VM or physical). 
 
+Version 2.0.1 updated for VBR v12 support
+
 ## 📗 Documentation
 
 **Author:** Ronn Martin (ronn.martin@veeam.com)
 
-**System Requirements:** Veeam Powershell module (v11+), .NET Framework 4.6.2
+**System Requirements:** Veeam Backup & Replication (v11+), Veeam Powershell module (v11+), .NET Framework 4.7.2
 
 **Operation:** Only Windows workload backups are currently supported. The utility runs with full Windows backup operator privilege which requires elevated execution permission. If "Compare" is selected directly following the completion of the mount operations, all disks in the backup are compared. It is highly reccommended that only one disk volume or folder set w/in a volume are compared at a time. The application can consume considerable RAM resources and take several minutes to run comparisons of entire backup images e.g. for a Windows 10 backup which includes MySQL, Python, Visual Studio, IIS, etc. a full comparison can take up to 10 minutes and consume 3GB+ RAM. File level differences are flagged and displayed if any of the following conditions are met -
 
@@ -17,7 +19,7 @@ This Windows utility leverages the Powershell-based Veeam Data Integration API t
 * If the file modification date has changed between restore points
 * If the file's encryption status has changed between restore points.
 
-**Usage:** After installing to a Windows instance that meets the requirements above, the application will reside in "\Program Files\Veeam Skunkworks\Veeam Restore Point File Diff\VeeamRestorePointDiff.exe". A start menu shortcut is also added for convenience.
+**Usage:** After installing to a Windows instance that meets the requirements above (most likely the VBR server itself), the application will reside in "\Program Files\Veeam Skunkworks\Veeam Restore Point File Diff\VeeamRestorePointDiff.exe". A start menu shortcut is also added for convenience.
 For normal operation, launch the application as administrator and select the Windows workload for comparison from the list of backups and affiliated workloads.
 
 ![Workload Selection](images/WorkloadSelection.png)
