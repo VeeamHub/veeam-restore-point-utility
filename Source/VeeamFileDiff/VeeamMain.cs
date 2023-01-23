@@ -20,7 +20,7 @@ namespace VeeamFileDiff
 {
     public partial class frmVeeamMain : Form
     {
-        private string[] VBRPSModule = new string[] { "Veeam.Backup.PowerShell" };
+        private readonly string[] VBRPSModule = new string[] { "Veeam.Backup.PowerShell" };
         private VeeamAppData appData = new VeeamAppData();
 
         public frmVeeamMain()
@@ -32,7 +32,7 @@ namespace VeeamFileDiff
         private void frmVeeamMain_Shown(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-
+            Application.DoEvents();
             try {
                 this.CenterToScreen();
                 //Add Veeam Powershell module
@@ -63,8 +63,8 @@ namespace VeeamFileDiff
                            MessageBox.Show(String.Format("Error opening Powershell module - '{0}'", VBRPSModule[0]), "Veeam File Diff", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                    catch {
-                        MessageBox.Show("Error opening Powershell runspace", "Veeam File Diff", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    catch(Exception ex) {
+                        MessageBox.Show(String.Format("Error opening Powershell runspace - {0}", ex.Message.ToString()), "Veeam File Diff", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 catch {
@@ -106,6 +106,7 @@ namespace VeeamFileDiff
         private Boolean verifyModuleLoad()
         {
             Pipeline psPipe;
+            Boolean rval = false;
 
             try {
                 psPipe = appData.VBRRunSpace.CreatePipeline();
@@ -113,40 +114,60 @@ namespace VeeamFileDiff
                 ICollection<PSObject> results = psPipe.Invoke();
 
                 if (results.Count > 0)
-                    return (true);
-                else
-                    return (false);
+                    rval = true;
+                psPipe.Dispose();
+                return (rval);
             }
             catch {
                 return (false);
             }
         }
 
+        //
+        // due to changes with Get-VBRBackup in v12 per job types need to check VBR platform
+        //
         private int detectVBRPlatform()
         {
             Pipeline vPipe;
             String verString;
 
             slVeeam.Text = "Detecting VBR platform version";
+            prgVeeam.Visible = false;
             Application.DoEvents();
-            vPipe = appData.VBRRunSpace.CreatePipeline();
-            vPipe.Commands.AddScript("Get-WmiObject -Class Win32_Product | Where-Object {$_.Name -eq 'Veeam Backup & Replication Server'} | Select-Object Version");
-            ICollection<PSObject> results = vPipe.Invoke();
 
-            if (vPipe.Error.Count == 0)
+            try
             {
-                foreach (PSObject pso in results) //should only be one...
+                vPipe = appData.VBRRunSpace.CreatePipeline();
+                //vPipe.Commands.AddScript("Get-WmiObject -Class Win32_Product | Where-Object {$_.Name -eq 'Veeam Backup & Replication Server'} | Select-Object Version");
+                // much faster way to accomplish from - https://devblogs.microsoft.com/scripting/use-powershell-to-find-installed-software/
+                vPipe.Commands.AddScript("Get-ItemProperty HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\* |  Where-Object {$_.DisplayName -eq 'Veeam Backup & Replication Server'} | Select-Object DisplayName, DisplayVersion");
+                ICollection<PSObject> results = vPipe.Invoke();
+
+                if (vPipe.Error.Count == 0)
                 {
-                    //extract VBR major version
-                    verString = pso.Properties["Version"].Value.ToString().Split('.')[0];
-                    vPipe.Dispose();
-                    return int.Parse(verString);
+                    foreach (PSObject pso in results) //should only be one...
+                    {
+                        //extract VBR major version
+                        verString = pso.Properties["DisplayVersion"].Value.ToString().Split('.')[0];
+                        vPipe.Dispose();
+                        return int.Parse(verString);
+                    }
                 }
+                vPipe.Dispose();
+                return 0;
             }
-            vPipe.Dispose();
-            return 0;
+            catch(Exception ex)
+            {
+                MessageBox.Show(String.Format("Error detecting VBR platform version - {0}", ex.Message.ToString()), "Veeam File Diff", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                slVeeam.Text = "";
+                Application.DoEvents();
+                return 0;
+            }
         }
 
+        //
+        // make v12+ the new default
+        //
         private Boolean initBackupList()
         {
             Pipeline vPipe;
@@ -157,14 +178,19 @@ namespace VeeamFileDiff
                 trvBackups.Nodes.Add("Backups"); //"seed" the treeview
 
                 switch (detectVBRPlatform()) {
-                    case 12:
-                        psScriptStr = "Get-VBRBackup | ? {$_.TypeToString -eq 'VMWare Backup' -or $_.JobType -eq 'EndpointBackup' -or $_.JobType -eq 'EpAgentManagement'} | Select-Object JobName, JobType, Id";
-                        break;
-                    default: //v11
+                    case 10:
+                    case 11: //v11-
                         psScriptStr = "Get-VBRBackup | ? {$_.JobType -eq 'Backup' -or $_.JobType -eq 'EndpointBackup' -or $_.JobType -eq 'EpAgentManagement'} | Select-Object JobName, JobType, Id";
-                        break; 
+                        break;
+                    default:
+                        //added updated v12 job types and 'VmbApiPolicyTempJob' for RHV, AHV backups; might need to add "CloudBackup" and "ArchiveBackup"????
+                        //ok removed VmbApiPolicyTemplateJob for now as it breaks the subsequent 'get-vbrbackup' call 
+                        psScriptStr = "Get-VBRBackup | ? {$_.JobType -eq 'Backup' -or $_.JobType -eq 'PerVmParentBackup' -or $_.JobType -eq 'EndpointBackup' -or $_.JobType -eq 'EpAgentBackup'} | Select-Object JobName, JobType, Id";
+                        break;
                 }
                 slVeeam.Text = "Retrieving available backups";
+                prgVeeam.Visible = true;
+                Application.DoEvents();
 
                 vPipe = appData.VBRRunSpace.CreatePipeline();
                 vPipe.Commands.AddScript(psScriptStr);
@@ -210,6 +236,10 @@ namespace VeeamFileDiff
             }
         }
 
+
+        /*
+         * 1/4/2023 - modified to filter out ineligible Linux-based workloads
+        */
         private Boolean initJobWorkloads()
         {
             try {
@@ -224,13 +254,19 @@ namespace VeeamFileDiff
                     vPipe = appData.VBRRunSpace.CreatePipeline();
 
                     //PS query will return unique image backup names w/legitimate restore points
-                    vPipe.Commands.AddScript(String.Format("Get-VBRBackup -Name '{0}' | Get-VBRRestorePoint | Select-Object -Unique VmName", backup.Text));
+                    vPipe.Commands.AddScript(String.Format("Get-VBRBackup -Name '{0}' | Get-VBRRestorePoint | Select-Object -Unique VmName, GuestInfo", backup.Text));
                     ICollection<PSObject> results = vPipe.Invoke();
 
                     if (vPipe.Error.Count == 0) {
+
                         foreach (PSObject pso in results) {
-                            if (!vmTreeNodeExists(backup, pso.Properties["VmName"].Value.ToString()))
-                                backup.Nodes.Add(pso.Properties["VmName"].Value.ToString(), pso.Properties["VmName"].Value.ToString());
+                            //*could* have added a Veeam.Backup.Model.DLL reference here to cast the "GuestInfo" value to a CGuestInfo and then checked the "IsUnixBackup"
+                            //however this introduces a DLL version dependency which we can avoid altogether by assigning the value of "GuestInfo" to a dynamic var which
+                            //doesn't throw any compile-time reference errors. Of course if this private property is changed it will cause problems though
+                            dynamic guestInfo = pso.Properties["GuestInfo"].Value;
+                            if (!guestInfo.IsUnixBased)
+                                if (!vmTreeNodeExists(backup, pso.Properties["VmName"].Value.ToString()))
+                                    backup.Nodes.Add(pso.Properties["VmName"].Value.ToString(), pso.Properties["VmName"].Value.ToString());
                         }
                     }
 
@@ -255,7 +291,7 @@ namespace VeeamFileDiff
             TreeNode node = trvBackups.SelectedNode;
 
             if (node != null)
-                if (node.Level == 2) //if a "leaf" then restore point is selected proceed
+                if (node.Level == 2) //if a "leaf" then specific workload / VM is selected proceed
                 {
                     appData.machineName = node.Text; //save machine/VM name
                     frmChoosePoints nxtDialog = new frmChoosePoints(this, appData);
@@ -269,7 +305,6 @@ namespace VeeamFileDiff
                     MessageBox.Show("Choose workload/VM!", "Veeam File Diff", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show("Choose workload/VM!", "Veeam File Diff", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
         }
 
         private void btnExit_Click(object sender, EventArgs e)

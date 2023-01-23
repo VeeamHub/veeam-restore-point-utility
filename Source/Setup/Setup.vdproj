@@ -15,13 +15,25 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_27BB85F2452D9EDF44F0E2CDFDC679D4"
+        "OwnerKey" = "8:_2BDE5BD7A46D4159A6381A5048E23E28"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_2BDE5BD7A46D4159A6381A5048E23E28"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_5E94EFF1D432185A95DB88AD1A720A40"
+        "MsmKey" = "8:_2E9ECAED9CDF35A1C226B0076909C55D"
+        "OwnerKey" = "8:_2BDE5BD7A46D4159A6381A5048E23E28"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_3028851FFF28EA0B2B28305C499CD607"
         "OwnerKey" = "8:_2BDE5BD7A46D4159A6381A5048E23E28"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -39,7 +51,19 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_BFD23EA1ED1F7F6673BD97C754CDC403"
+        "MsmKey" = "8:_EB7EF63BAF8394864FD070A8E3243FA2"
+        "OwnerKey" = "8:_2BDE5BD7A46D4159A6381A5048E23E28"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EB7EF63BAF8394864FD070A8E3243FA2"
+        "OwnerKey" = "8:_2E9ECAED9CDF35A1C226B0076909C55D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_2BDE5BD7A46D4159A6381A5048E23E28"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -52,19 +76,25 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2BDE5BD7A46D4159A6381A5048E23E28"
+        "OwnerKey" = "8:_3028851FFF28EA0B2B28305C499CD607"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_5E94EFF1D432185A95DB88AD1A720A40"
+        "OwnerKey" = "8:_2E9ECAED9CDF35A1C226B0076909C55D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_BFD23EA1ED1F7F6673BD97C754CDC403"
+        "OwnerKey" = "8:_EB7EF63BAF8394864FD070A8E3243FA2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_27BB85F2452D9EDF44F0E2CDFDC679D4"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -126,10 +156,10 @@
             "ComponentsUrl" = "8:"
                 "Items"
                 {
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.2"
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
                     {
-                    "Name" = "8:Microsoft .NET Framework 4.6.2 (x86 and x64)"
-                    "ProductCode" = "8:.NETFramework,Version=v4.6.2"
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
                     }
                 }
             }
@@ -154,7 +184,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:.NETFramework,Version=v4.5"
+                "FrameworkVersion" = "8:.NETFramework,Version=v4.7.2"
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=395269"
                 }
@@ -162,14 +192,76 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5E94EFF1D432185A95DB88AD1A720A40"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_27BB85F2452D9EDF44F0E2CDFDC679D4"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+                "ScatterAssemblies"
+                {
+                    "_27BB85F2452D9EDF44F0E2CDFDC679D4"
+                    {
+                    "Name" = "8:System.Net.Http.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:System.Net.Http.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_7302386028D34E1E813CE3E330CAB5CE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2E9ECAED9CDF35A1C226B0076909C55D"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Veeam.Backup.Model, Version=11.0.0.0, Culture=neutral, PublicKeyToken=bfd684de2276783a, processorArchitecture=AMD64"
+                "ScatterAssemblies"
+                {
+                    "_2E9ECAED9CDF35A1C226B0076909C55D"
+                    {
+                    "Name" = "8:Veeam.Backup.Model.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Veeam.Backup.Model.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_7302386028D34E1E813CE3E330CAB5CE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3028851FFF28EA0B2B28305C499CD607"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:ProcessPrivileges, Version=1.5.7.0, Culture=neutral, PublicKeyToken=fa3ff549c00ac058, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_5E94EFF1D432185A95DB88AD1A720A40"
+                    "_3028851FFF28EA0B2B28305C499CD607"
                     {
                     "Name" = "8:ProcessPrivileges.dll"
                     "Attributes" = "3:512"
@@ -244,20 +336,20 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BFD23EA1ED1F7F6673BD97C754CDC403"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_EB7EF63BAF8394864FD070A8E3243FA2"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+            "AssemblyAsmDisplayName" = "8:Veeam.Backup.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=bfd684de2276783a, processorArchitecture=AMD64"
                 "ScatterAssemblies"
                 {
-                    "_BFD23EA1ED1F7F6673BD97C754CDC403"
+                    "_EB7EF63BAF8394864FD070A8E3243FA2"
                     {
-                    "Name" = "8:System.Net.Http.dll"
+                    "Name" = "8:Veeam.Backup.Common.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:System.Net.Http.dll"
+            "SourcePath" = "8:Veeam.Backup.Common.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_7302386028D34E1E813CE3E330CAB5CE"
@@ -331,15 +423,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Veeam Restore Point File Diff"
-        "ProductCode" = "8:{3702CCEC-7ECF-4142-8A1C-0E7A8A2138FB}"
-        "PackageCode" = "8:{F848B326-AD4E-4515-9D85-60A0F6576734}"
+        "ProductCode" = "8:{E843D620-9C47-4055-9216-E0F5D3AEFF23}"
+        "PackageCode" = "8:{222ED1FA-D367-4AA6-A603-7D6ED2EAD561}"
         "UpgradeCode" = "8:{22D451CD-85AF-4F13-8588-668B73B7280F}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.5"
+        "ProductVersion" = "8:2.0.1"
         "Manufacturer" = "8:Veeam Skunkworks"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
