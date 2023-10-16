@@ -93,7 +93,11 @@ namespace VeeamFileDiff
                         }
                         lstItem = new ListViewItem(pso.Properties["VmName"].Value.ToString());
                         lstItem.SubItems.Add(pso.Properties["CreationTime"].Value.ToString());
-                        lstItem.SubItems.Add(pso.Properties["$_.FindChainRepositories().Name"].Value.ToString());
+                        //MessageBox.Show("here");
+                        if (pso.Properties["$_.FindChainRepositories().Name"].Value != null)
+                            lstItem.SubItems.Add(pso.Properties["$_.FindChainRepositories().Name"].Value.ToString());
+                        else
+                            lstItem.SubItems.Add("[Unknown]");
                         lstItem.Tag = pso.Properties["Id"].Value.ToString();
                         lsvPoints.Items.Add(lstItem);
                     }
