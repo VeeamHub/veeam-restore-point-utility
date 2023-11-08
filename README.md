@@ -4,7 +4,7 @@
 
 This Windows utility leverages the Powershell-based Veeam Data Integration API to mount backup points for the purpose of performing file-level comparison between two backup increments useful for helping determine the source filesystem changes that have caused some sort of restore point size anomoly for instance a daily increment point size substantially larger or smaller than normal.  The utility also accomodates comparing a restore point to a running workload (VM or physical). 
 
-Version 2.0.3 updated for VBR v12+ support
+Version 2.0.3 updated for VBR v12+ support and miscellaneous bug fixes
 
 ## 📗 Documentation
 
