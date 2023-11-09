@@ -186,7 +186,7 @@ namespace VeeamFileDiff
                     default:
                         //added updated v12 job types and 'VmbApiPolicyTempJob' for RHV, AHV backups; might need to add "CloudBackup" and "ArchiveBackup"????
                         //ok removed VmbApiPolicyTemplateJob for now as it breaks the subsequent 'get-vbrbackup' call 
-                        psScriptStr = "Get-VBRBackup | ? {($_.VMCount -gt 0) -and ($_.JobType -eq 'Backup' -or $_.JobType -eq 'PerVmParentBackup' -or $_.JobType -eq 'EndpointBackup' -or $_.JobType -eq 'EpAgentBackup' -or $_.JobType -eq 'EpAgentPolicy' -or $_.JobType -eq 'VmbAPIPolicyTempJob')} | Select-Object JobName, JobType, Id";
+                        psScriptStr = "Get-VBRBackup | ? {($_.VMCount -gt 0) -and ($_.JobType -eq 'Backup' -or $_.JobType -eq 'PerVmParentBackup' -or $_.JobType -eq 'EndpointBackup' -or $_.JobType -eq 'EpAgentBackup' -or $_.JobType -eq 'EpAgentPolicy')} | Select-Object JobName, JobType, Id";
                         break;
                 }
                 slVeeam.Text = "Retrieving available backups";
@@ -296,20 +296,13 @@ namespace VeeamFileDiff
                     do
                     {
                         if (trvBackups.Nodes[0].Nodes[idx].Nodes.Count == 0)
+                        {
+                            //MessageBox.Show(string.Format("Remove node - {0}, idx - {1}", trvBackups.Nodes[0].Nodes[idx].Name, idx.ToString()));
                             trvBackups.Nodes[0].Nodes[idx].Remove();
+                        }
                         else
                             idx++;
                     } while (idx < trvBackups.Nodes[0].Nodes.Count);
-
-                    /*int cnt = 1;
-                    foreach (TreeNode backup in trvBackups.Nodes[0].Nodes)
-                    {
-                        if (cnt <= trvBackups.Nodes[0].Nodes.Count)
-                            if (backup.Nodes.Count == 0)
-                                backup.Remove();
-                        cnt++;
-                        Application.DoEvents();
-                    }*/
                 }
                 Application.DoEvents();
                 return;
