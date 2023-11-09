@@ -292,7 +292,16 @@ namespace VeeamFileDiff
             {
                 if (trvBackups.Nodes[0].Nodes.Count > 0)
                 {
-                    int cnt = 1;
+                    int idx = 0;
+                    do
+                    {
+                        if (trvBackups.Nodes[0].Nodes[idx].Nodes.Count == 0)
+                            trvBackups.Nodes[0].Nodes[idx].Remove();
+                        else
+                            idx++;
+                    } while (idx < trvBackups.Nodes[0].Nodes.Count);
+
+                    /*int cnt = 1;
                     foreach (TreeNode backup in trvBackups.Nodes[0].Nodes)
                     {
                         if (cnt <= trvBackups.Nodes[0].Nodes.Count)
@@ -300,7 +309,7 @@ namespace VeeamFileDiff
                                 backup.Remove();
                         cnt++;
                         Application.DoEvents();
-                    }
+                    }*/
                 }
                 Application.DoEvents();
                 return;
