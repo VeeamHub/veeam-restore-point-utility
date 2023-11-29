@@ -57,6 +57,8 @@ namespace VeeamFileDiff
 
                             initJobWorkloads();
 
+                            purgeEmptyTreeNodes(); //remove the backups that have no eligible Windows workloads to compare
+
                             btnChoosePoints.Enabled = true;
                         }
                         else {
@@ -176,16 +178,15 @@ namespace VeeamFileDiff
 
             try {
                 trvBackups.Nodes.Add("Backups"); //"seed" the treeview
-
                 switch (detectVBRPlatform()) {
                     case 10:
                     case 11: //v11-
-                        psScriptStr = "Get-VBRBackup | ? {$_.JobType -eq 'Backup' -or $_.JobType -eq 'EndpointBackup' -or $_.JobType -eq 'EpAgentManagement'} | Select-Object JobName, JobType, Id";
+                        psScriptStr = "Get-VBRBackup | ? {($_.VMCount -gt 0) -and ($_.JobType -eq 'Backup' -or $_.JobType -eq 'EndpointBackup' -or $_.JobType -eq 'EpAgentBackup' -or $_.JobType -eq 'EpAgentPolicy' -or $_.JobType -eq 'EpAgentManagement')} | Select-Object JobName, JobType, Id";
                         break;
                     default:
                         //added updated v12 job types and 'VmbApiPolicyTempJob' for RHV, AHV backups; might need to add "CloudBackup" and "ArchiveBackup"????
                         //ok removed VmbApiPolicyTemplateJob for now as it breaks the subsequent 'get-vbrbackup' call 
-                        psScriptStr = "Get-VBRBackup | ? {$_.JobType -eq 'Backup' -or $_.JobType -eq 'PerVmParentBackup' -or $_.JobType -eq 'EndpointBackup' -or $_.JobType -eq 'EpAgentBackup'} | Select-Object JobName, JobType, Id";
+                        psScriptStr = "Get-VBRBackup | ? {($_.VMCount -gt 0) -and ($_.JobType -eq 'Backup' -or $_.JobType -eq 'PerVmParentBackup' -or $_.JobType -eq 'EndpointBackup' -or $_.JobType -eq 'EpAgentBackup' -or $_.JobType -eq 'EpAgentPolicy')} | Select-Object JobName, JobType, Id";
                         break;
                 }
                 slVeeam.Text = "Retrieving available backups";
@@ -285,7 +286,33 @@ namespace VeeamFileDiff
                 return false;
             }
         }
-
+        private void purgeEmptyTreeNodes()
+        {
+            try
+            {
+                if (trvBackups.Nodes[0].Nodes.Count > 0)
+                {
+                    int idx = 0;
+                    do
+                    {
+                        if (trvBackups.Nodes[0].Nodes[idx].Nodes.Count == 0)
+                        {
+                            //MessageBox.Show(string.Format("Remove node - {0}, idx - {1}", trvBackups.Nodes[0].Nodes[idx].Name, idx.ToString()));
+                            trvBackups.Nodes[0].Nodes[idx].Remove();
+                        }
+                        else
+                            idx++;
+                    } while (idx < trvBackups.Nodes[0].Nodes.Count);
+                }
+                Application.DoEvents();
+                return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(String.Format("Error purging empty tree nodes - {0}", ex.Message.ToString()), "Veeam File Diff", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
         private void btnChoosePoints_Click(object sender, EventArgs e)
         {
             TreeNode node = trvBackups.SelectedNode;

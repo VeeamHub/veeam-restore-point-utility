@@ -35,3 +35,4 @@ C:\Users\ronn.martin\GIT\veeam-restore-point-utility\Source\VeeamFileDiff\obj\x6
 C:\Users\ronn.martin\GIT\veeam-restore-point-utility\Source\VeeamFileDiff\obj\x64\Release\VeeamFileDiff.csproj.CopyComplete
 C:\Users\ronn.martin\GIT\veeam-restore-point-utility\Source\VeeamFileDiff\obj\x64\Release\VeeamRestorePointDiff.exe
 C:\Users\ronn.martin\GIT\veeam-restore-point-utility\Source\VeeamFileDiff\obj\x64\Release\VeeamRestorePointDiff.pdb
+C:\Users\ronn.martin\GIT\veeam-restore-point-utility\Source\VeeamFileDiff\obj\x64\Release\VeeamFileDiff.csproj.AssemblyReference.cache

@@ -27,12 +27,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_2E9ECAED9CDF35A1C226B0076909C55D"
-        "OwnerKey" = "8:_2BDE5BD7A46D4159A6381A5048E23E28"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_3028851FFF28EA0B2B28305C499CD607"
         "OwnerKey" = "8:_2BDE5BD7A46D4159A6381A5048E23E28"
         "MsmSig" = "8:_UNDEFINED"
@@ -51,18 +45,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_EB7EF63BAF8394864FD070A8E3243FA2"
-        "OwnerKey" = "8:_2BDE5BD7A46D4159A6381A5048E23E28"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_EB7EF63BAF8394864FD070A8E3243FA2"
-        "OwnerKey" = "8:_2E9ECAED9CDF35A1C226B0076909C55D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_2BDE5BD7A46D4159A6381A5048E23E28"
         "MsmSig" = "8:_UNDEFINED"
@@ -77,18 +59,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_3028851FFF28EA0B2B28305C499CD607"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2E9ECAED9CDF35A1C226B0076909C55D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_EB7EF63BAF8394864FD070A8E3243FA2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -223,37 +193,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2E9ECAED9CDF35A1C226B0076909C55D"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Veeam.Backup.Model, Version=11.0.0.0, Culture=neutral, PublicKeyToken=bfd684de2276783a, processorArchitecture=AMD64"
-                "ScatterAssemblies"
-                {
-                    "_2E9ECAED9CDF35A1C226B0076909C55D"
-                    {
-                    "Name" = "8:Veeam.Backup.Model.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Veeam.Backup.Model.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_7302386028D34E1E813CE3E330CAB5CE"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:TRUE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3028851FFF28EA0B2B28305C499CD607"
             {
             "AssemblyRegister" = "3:1"
@@ -336,37 +275,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_EB7EF63BAF8394864FD070A8E3243FA2"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Veeam.Backup.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=bfd684de2276783a, processorArchitecture=AMD64"
-                "ScatterAssemblies"
-                {
-                    "_EB7EF63BAF8394864FD070A8E3243FA2"
-                    {
-                    "Name" = "8:Veeam.Backup.Common.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Veeam.Backup.Common.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_7302386028D34E1E813CE3E330CAB5CE"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:TRUE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
         }
         "FileType"
         {
@@ -423,15 +331,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Veeam Restore Point File Diff"
-        "ProductCode" = "8:{E843D620-9C47-4055-9216-E0F5D3AEFF23}"
-        "PackageCode" = "8:{222ED1FA-D367-4AA6-A603-7D6ED2EAD561}"
+        "ProductCode" = "8:{65E71A3C-9E60-460C-A41E-478E33DE737A}"
+        "PackageCode" = "8:{6E179B62-97B5-4040-8FE7-D068929230E5}"
         "UpgradeCode" = "8:{22D451CD-85AF-4F13-8588-668B73B7280F}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:2.0.1"
+        "ProductVersion" = "8:2.0.3"
         "Manufacturer" = "8:Veeam Skunkworks"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
